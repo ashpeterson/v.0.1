@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="HSP.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HSP.UWP"
+    RequestedTheme="Light">
+
+</Application>
