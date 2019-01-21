@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace HSP.Abstractions
 {
@@ -9,9 +10,9 @@ namespace HSP.Abstractions
      into a table and is defined in Abstractions\ICloudTable.cs
     ****************************************************************/
 
-    interface ICloudTable<T> where T : TableData
+    public interface ICloudTable<T> where T : TableData
     {
-        Tasks<T> CreateItemAsync(T item);
+        Task<T> CreateItemAsync(T item);
         Task<T> ReadItemAsync(string id);
         Task<T> UpdateItemAsync(T item);
         Task DeleteItemAsync(T item);
