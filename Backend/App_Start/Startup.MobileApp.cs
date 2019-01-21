@@ -14,6 +14,15 @@ namespace Backend
 {
     public partial class Startup
     {
+        /*--------------------------------------------------------------
+         * Mobile Apps SDK is initialized within App_Start\Startup.MobileApp.cs 
+         * (with the call to the configuration routine happening within Startup.cs).
+         * The default startup routine is reasonable but it hides what it is doing 
+         * behind extension methods. This technique is fairly common in ASP.NET programs.
+         * hellooooo
+         --------------------------------------------------------------*/
+
+
         public static void ConfigureMobileApp(IAppBuilder app)
         {
             HttpConfiguration config = new HttpConfiguration();
