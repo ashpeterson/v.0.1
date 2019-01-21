@@ -32,7 +32,7 @@ namespace HSP.Abstractions
 
         protected void SetProperty<T>(ref T store, T value, string propName, Action onChanged = null)
         {
-            if (IEqualityComparer<T>.Default.Equals(store, value))
+            if (EqualityComparer<T>.Default.Equals(store, value))
                 return;
             store = value;
             if (onChanged != null)
