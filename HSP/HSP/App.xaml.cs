@@ -15,7 +15,7 @@ namespace HSP
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Pages.EntryPage());
+            MainPage = new NavigationPage(new Pages.EntryPage()); //invoke main entry into the app, this page will be used for authentication 
 
             CloudService = new AzureCloudService();
 
