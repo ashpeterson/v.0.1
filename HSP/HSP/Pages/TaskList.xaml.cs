@@ -7,20 +7,19 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using HSP.ViewModels;
-using HSP.Models;
 
 namespace HSP.Pages
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class EntryPage : ContentPage
+	public partial class TaskList : ContentPage
 	{
-		public EntryPage ()
+		public TaskList ()
 		{
 			InitializeComponent ();
 
-            Title = "Welcome";
+            Title = "Task List ";
 
-            BindingContext = new EntryPageViewModel();
+			BindingContext = new TaskListViewModel();
 		}
 	}
 }
