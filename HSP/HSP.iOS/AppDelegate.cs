@@ -24,6 +24,7 @@ namespace HSP.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+            global::Xamarin.Forms.Forms.Init();
 
             return base.FinishedLaunching(app, options);
         }

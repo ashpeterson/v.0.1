@@ -18,9 +18,9 @@ namespace HSP.Pages
 		{
 			InitializeComponent ();
 
-            Title = "Welcome";
+			Title = "Welcome";
 
-            BindingContext = new EntryPageViewModel();
+			BindingContext = new EntryPageViewModel();
 		}
 	}
 }

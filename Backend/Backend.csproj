@@ -181,6 +181,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\Backend-HSP - Web Deploy.pubxml" />
   </ItemGroup>
