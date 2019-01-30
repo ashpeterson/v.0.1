@@ -18,14 +18,15 @@ namespace Backend.Controllers
     querying and manipulating data within a table. Entity Framework is a common data access layer for 
     ASP.NET applications.
     ------------------------------------------------------------------------------------------------- */
-
+    //TODO: add authorization on table level using : [Authorize] 
     public class TodoItemController : TableController<TodoItem>
     {
+
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             MobileServiceContext context = new MobileServiceContext();
-            DomainManager = new EntityDomainManager<TodoItem>(context, Request);
+            DomainManager = new EntityDomainManager<TodoItem>(context, Request, enableSoftDelete: true); //Added soft delete function 
         }
 
         // GET tables/TodoItem
