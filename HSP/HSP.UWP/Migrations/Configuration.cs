@@ -1,6 +1,5 @@
-namespace HSP.Droid.Migrations
+namespace HSP.UWP.Migrations
 {
-    using Android.Content;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -13,7 +12,7 @@ namespace HSP.Droid.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(/* TODO: put your Code First context type name here */ Context)
+        protected override void Seed(/* TODO: put your Code First context type name here */ context)
         {
             //  This method will be called after migrating to the latest version.
 
