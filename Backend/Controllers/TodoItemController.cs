@@ -12,11 +12,10 @@ namespace Backend.Controllers
     /*-------------------------------------------------------------------------------------------------
      The TableController is the central processing for the database access layer. 
      It handles all the OData capabilities for us and exposes these as REST endpoints within our WebAPI. 
-     This means that the actual code for this controller is tiny - just 12 lines of code.
 
      OData is a specification for accessing table data on the Internet. It provides a mechanism for 
-    querying and manipulating data within a table. Entity Framework is a common data access layer for 
-    ASP.NET applications.
+     querying and manipulating data within a table. Entity Framework is a common data access layer for 
+     ASP.NET applications.
     ------------------------------------------------------------------------------------------------- */
 
     public class TodoItemController : TableController<TodoItem>

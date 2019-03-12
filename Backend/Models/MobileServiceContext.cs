@@ -15,11 +15,9 @@ namespace Backend.Models
         // automatically whenever you change your model schema, please use data migrations.
         // For more information refer to the documentation:
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
-        //
         // To enable Entity Framework migrations in the cloud, please ensure that the 
         // service name, set by the 'MS_MobileServiceName' AppSettings in the local 
         // Web.config, is the same as the service name when hosted in Azure.
-
 
         /*---------------------------------------------------------------------------------------------------------------------------------------------------
         Models\MobileServiceContext.cs. Azure Mobile Apps is heavily dependent on Entity Framework v6.x and the DbContext is a central part of that library.
@@ -30,9 +28,13 @@ namespace Backend.Models
 
         public MobileServiceContext() : base(connectionStringName)
         {
+            Database.Log = s => WriteLog(s);
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public void WriteLog(string msg)
+        {
+            System.Diagnostics.Debug.WriteLine(msg);
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -40,5 +42,8 @@ namespace Backend.Models
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
+        public DbSet<DataObjects.TodoItem> TodoItems { get; set; }
+        public DbSet<DataObjects.Initial> Initial { get; set; }
     }
 }
