@@ -20,6 +20,7 @@ namespace Backend.Controllers
 
     public class TodoItemController : TableController<TodoItem>
     {
+        [EnableQuery(PageSize = 10)]
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);

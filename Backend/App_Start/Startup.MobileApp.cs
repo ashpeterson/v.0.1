@@ -6,6 +6,7 @@ using Microsoft.Azure.Mobile.Server.Config;
 using Backend.DataObjects;
 using Backend.Models;
 using Owin;
+using System.Data.Entity.Migrations;
 
 namespace Backend
 {
@@ -27,11 +28,11 @@ namespace Backend
                 .ApplyTo(httpConfig);
 
             // Automatic Code First Migrations
-            // var migrator = new DbMigrator(new Migrations.Configuration());
-            // migrator.Update();
+             var migrator = new DbMigrator(new Migrations.Configuration());
+             migrator.Update();
 
             // Database First
-            Database.SetInitializer<DbContext>(null);
+            //Database.SetInitializer<DbContext>(null);
 
             app.UseWebApi(httpConfig);
 
