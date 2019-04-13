@@ -171,6 +171,14 @@
     <Compile Include="Migrations\201904131600462_Sync.Designer.cs">
       <DependentUpon>201904131600462_Sync.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904131619094_Initial.cs" />
+    <Compile Include="Migrations\201904131619094_Initial.Designer.cs">
+      <DependentUpon>201904131619094_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131624203_Initil.cs" />
+    <Compile Include="Migrations\201904131624203_Initil.Designer.cs">
+      <DependentUpon>201904131624203_Initil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -196,6 +204,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904131600462_Sync.resx">
       <DependentUpon>201904131600462_Sync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131619094_Initial.resx">
+      <DependentUpon>201904131619094_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131624203_Initil.resx">
+      <DependentUpon>201904131624203_Initil.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

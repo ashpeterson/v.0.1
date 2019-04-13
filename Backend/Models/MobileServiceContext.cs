@@ -24,7 +24,8 @@ namespace Backend.Models
         ---------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-        private const string connectionStringName = "Name=MS_TableConnectionString";
+        private const string connectionStringName = "Name=MDalConnectionCloud";
+
 
         public MobileServiceContext() : base(connectionStringName)
         {
