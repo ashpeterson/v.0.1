@@ -1,7 +1,9 @@
 namespace Backend.Migrations
 {
+    using Backend.DataObjects;
     using Microsoft.Azure.Mobile.Server.Tables;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -28,6 +30,20 @@ namespace Backend.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            List<TodoItem> todoItems = new List<TodoItem>
+            {
+                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
+                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false }
+            };
+
+            foreach (TodoItem todoItem in todoItems)
+            {
+                context.Set<TodoItem>().Add(todoItem);
+            }
+
+            base.Seed(context);
+
         }
     }
 }
