@@ -168,6 +168,8 @@
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="DataObjects\Messages.cs" />
+    <Compile Include="DataObjects\Relationship.cs" />
     <Compile Include="DataObjects\Sync.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="DataObjects\Users.cs" />
