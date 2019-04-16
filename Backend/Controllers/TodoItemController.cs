@@ -7,6 +7,11 @@ using Microsoft.Azure.Mobile.Server;
 using Backend.DataObjects;
 using Backend.Models;
 using System.Security.Claims;
+using Backend.Extensions;
+using System.Net;
+using System.Collections.Generic;
+using System.Security.Principal;
+using Microsoft.Azure.Mobile.Server.Authentication;
 
 namespace Backend.Controllers
 {
@@ -32,19 +37,22 @@ namespace Backend.Controllers
         // GET tables/TodoItem
         public IQueryable<TodoItem> GetAllTodoItems()
         {
-            return Query().Where(item => item.UserId.Equals(UserId));
+            return Query().PerUserFilter(UserId);
+            //return Query().Where(item => item.UserId.Equals(UserId));
             //return Query();
         }
 
         // GET tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public SingleResult<TodoItem> GetTodoItem(string id)
         {
-            return Lookup(id);
+            return new SingleResult<TodoItem>(Lookup(id).Queryable.PerUserFilter(UserId));
+            //return Lookup(id);
         }
 
         // PATCH tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
         {
+            ValidateOwner(id);
             return UpdateAsync(id, patch);
         }
          
@@ -59,6 +67,7 @@ namespace Backend.Controllers
         // DELETE tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
         public Task DeleteTodoItem(string id)
         {
+            ValidateOwner(id);
             return DeleteAsync(id);
         }
         public string UserId
@@ -69,5 +78,20 @@ namespace Backend.Controllers
                 return principal.FindFirst(ClaimTypes.NameIdentifier).Value;
             }
         }
+
+        /// <summary>
+        /// Validate that the UserId owns the id we are updating.
+        /// </summary>
+        /// <param name="id"></param>
+        private void ValidateOwner(string id)
+        {
+            var result = Lookup(id).Queryable.PerUserFilter(UserId).FirstOrDefault<TodoItem>();
+            if (result == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+        }
+
+       
     }
 }

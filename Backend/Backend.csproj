@@ -166,9 +166,15 @@
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="DataObjects\Sync.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
+    <Compile Include="Extensions\SyncExtensions.cs" />
+    <Compile Include="Extensions\TodoItemExtensions.cs" />
     <Compile Include="Migrations\201904161051007_Sync.cs" />
     <Compile Include="Migrations\201904161051007_Sync.Designer.cs">
       <DependentUpon>201904161051007_Sync.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904161109136_SyncTableUpdated.cs" />
+    <Compile Include="Migrations\201904161109136_SyncTableUpdated.Designer.cs">
+      <DependentUpon>201904161109136_SyncTableUpdated.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -195,6 +201,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904161051007_Sync.resx">
       <DependentUpon>201904161051007_Sync.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161109136_SyncTableUpdated.resx">
+      <DependentUpon>201904161109136_SyncTableUpdated.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
