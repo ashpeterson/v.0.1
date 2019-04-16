@@ -164,20 +164,11 @@
     <Compile Include="Controllers\SyncController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="DataObjects\Initial.cs" />
     <Compile Include="DataObjects\Sync.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
-    <Compile Include="Migrations\201904131600462_Sync.cs" />
-    <Compile Include="Migrations\201904131600462_Sync.Designer.cs">
-      <DependentUpon>201904131600462_Sync.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904131619094_Initial.cs" />
-    <Compile Include="Migrations\201904131619094_Initial.Designer.cs">
-      <DependentUpon>201904131619094_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904131624203_Initil.cs" />
-    <Compile Include="Migrations\201904131624203_Initil.Designer.cs">
-      <DependentUpon>201904131624203_Initil.cs</DependentUpon>
+    <Compile Include="Migrations\201904161051007_Sync.cs" />
+    <Compile Include="Migrations\201904161051007_Sync.Designer.cs">
+      <DependentUpon>201904161051007_Sync.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
@@ -202,14 +193,8 @@
     <None Include="Properties\PublishProfiles\Backend-HSP - Web Deploy.pubxml" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904131600462_Sync.resx">
-      <DependentUpon>201904131600462_Sync.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904131619094_Initial.resx">
-      <DependentUpon>201904131619094_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904131624203_Initil.resx">
-      <DependentUpon>201904131624203_Initil.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904161051007_Sync.resx">
+      <DependentUpon>201904161051007_Sync.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

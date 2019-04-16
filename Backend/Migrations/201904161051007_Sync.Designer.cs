@@ -7,13 +7,13 @@ namespace Backend.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class Initil : IMigrationMetadata
+    public sealed partial class Sync : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Initil));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Sync));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904131624203_Initil"; }
+            get { return "201904161051007_Sync"; }
         }
         
         string IMigrationMetadata.Source

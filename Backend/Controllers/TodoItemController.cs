@@ -6,6 +6,7 @@ using System.Web.Http.OData;
 using Microsoft.Azure.Mobile.Server;
 using Backend.DataObjects;
 using Backend.Models;
+using System.Security.Claims;
 
 namespace Backend.Controllers
 {
@@ -31,7 +32,8 @@ namespace Backend.Controllers
         // GET tables/TodoItem
         public IQueryable<TodoItem> GetAllTodoItems()
         {
-            return Query();
+            return Query().Where(item => item.UserId.Equals(UserId));
+            //return Query();
         }
 
         // GET tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
@@ -49,6 +51,7 @@ namespace Backend.Controllers
         // POST tables/TodoItem
         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
         {
+            item.UserId = UserId;
             TodoItem current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
@@ -57,6 +60,14 @@ namespace Backend.Controllers
         public Task DeleteTodoItem(string id)
         {
             return DeleteAsync(id);
+        }
+        public string UserId
+        {
+            get
+            {
+                var principal = this.User as ClaimsPrincipal;
+                return principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+            }
         }
     }
 }

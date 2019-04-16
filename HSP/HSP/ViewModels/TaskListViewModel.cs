@@ -15,7 +15,7 @@ namespace HSP.ViewModels
     {
         public TaskListViewModel()
         {
-           // Title = "Task List";
+            title = "Task List";
             RefreshList();
         }
 

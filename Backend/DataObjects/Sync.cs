@@ -13,5 +13,8 @@ namespace Backend.DataObjects
         public double DoubleField { get; set; }
         public DateTimeOffset DateTimeField { get; set; }
 
+
     }
+
+
 }

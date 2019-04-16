@@ -45,7 +45,7 @@ namespace Backend.Models
         }
 
         public DbSet<DataObjects.TodoItem> TodoItems { get; set; }
-        public DbSet<DataObjects.Initial> Initial { get; set; }
+      //  public DbSet<DataObjects.Initial> Initial { get; set; }
 
         public System.Data.Entity.DbSet<Backend.DataObjects.Sync> Syncs { get; set; }
     }
