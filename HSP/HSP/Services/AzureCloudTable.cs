@@ -37,14 +37,48 @@ namespace HSP.Services
             await table.DeleteAsync(item);
         }
 
-        public async Task <ICollection<T>> ReadAllItemsAsync()
+        /// <summary>
+        /// Keep reading records until there are no more records to read.
+        /// This code will always make a minimum of 2 requests if there is any data.
+        /// If you have 75 records, three requests will be made - the first will bring down 50 records, 
+        /// the second 25 records and the third no records.
+        /// </summary>
+        /// <returns>AllItems</returns>
+        public async Task<ICollection<T>> ReadAllItemsAsync()
         {
-            return await table.ToListAsync();
+            List<T> allItems = new List<T>();
+
+            var pageSize = 50;
+            var hasMore = true;
+            while (hasMore)
+            {
+                var pageOfItems = await table.Skip(allItems.Count).Take(pageSize).ToListAsync();
+                if (pageOfItems.Count > 0)
+                {
+                    allItems.AddRange(pageOfItems);
+                }
+                else
+                {
+                    hasMore = false;
+                }
+            }
+            return allItems;
         }
 
-        public async Task<T> ReadItemAsync(string id)
+        public Task<T> ReadItemAsync(string id)
         {
-            return await table.LookupAsync(id);
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// UI thread will pause as the data is loaded, but the resulting UI will be less memory hungry and overall more responsive.
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public async Task<ICollection<T>> ReadItemsAsync(int start, int count)
+        {
+            return await table.Skip(start).Take(count).ToListAsync();
         }
 
         public async Task<T> UpdateItemAsync(T item)

@@ -14,7 +14,7 @@ using Microsoft.Azure.Mobile.Server.Authentication;
 using Microsoft.Azure.Mobile.Server.Login;
 using Newtonsoft.Json;
 
-namespace Chapter3.Controllers
+namespace Backend.Controllers
 {
     [Authorize]
     [Route("auth/login/custom")]

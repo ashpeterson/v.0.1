@@ -49,5 +49,7 @@ namespace Backend.Models
         public System.Data.Entity.DbSet<Backend.DataObjects.Sync> Syncs { get; set; }
 
         public System.Data.Entity.DbSet<Backend.DataObjects.User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<Backend.DataObjects.Messages> Messages { get; set; }
     }
 }
